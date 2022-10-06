@@ -22,7 +22,7 @@ const StyledBrand = styled.li`
 `;
 const BrandLogo = styled.img`
 display: block;
-width: 150px;
+width: 100px;
 `;
 const BrandName = styled.h4`
 font-weight: 600;

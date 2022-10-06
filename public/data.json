@@ -14,5 +14,21 @@
         "name": "Sosh",
         "discount": 8,
         "category": "Mobile"
+    },
+    {
+        "displayUrl": "https://www.sosh.fr/",
+        "logoUrl": "https://ui2.awin.com/logos/7320/logo.gif",
+        "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=7322&id=1110974",
+        "name": "Nike",
+        "discount": 8,
+        "category": "Mode"
+    },
+    {
+        "displayUrl": "https://www.sosh.fr/",
+        "logoUrl": "https://ui2.awin.com/logos/7320/logo.gif",
+        "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=7322&id=1110974",
+        "name": "Puma",
+        "discount": 8,
+        "category": "Mode"
     }
 ]
