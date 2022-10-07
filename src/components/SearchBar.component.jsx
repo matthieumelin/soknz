@@ -26,7 +26,7 @@ export default function SearchBar({
     if (!newSearch.length) {
       setSelectedFilter("Tous");
       setFiltredBrands(data);
-    } else if (newSearch.length >= 2) {
+    } else if (newSearch.trim().length >= 2) {
       if (filtred.length) {
         setSelectedFilter(filtred[0].category);
         setFiltredBrands(filtred);
