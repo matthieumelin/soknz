@@ -32,24 +32,6 @@ export default function App() {
     return [...new Map(array.map((item) => [item[key], item])).values()];
   };
 
-  /**
-   * Filter brands by category
-   * @returns {Array} data
-   */
-  const getFiltredBrands = () => {
-    const filtredBrands = data.filter((item) => {
-      return (
-        selectedFilter === item.category &&
-        item.name.toLowerCase().trim().includes(search.toLowerCase().trim())
-      );
-    });
-    return filtredBrands.length
-      ? filtredBrands
-      : data.filter((item) =>
-          item.name.toLowerCase().trim().includes(search.toLowerCase().trim())
-        );
-  };
-
   return (
     <StyledApp>
       <SearchBar
@@ -65,18 +47,20 @@ export default function App() {
         <Filter
           name="Tous"
           data={data}
+          search={search}
           filtredBrands={filtredBrands}
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
           setFiltredBrands={setFiltredBrands}
         />
-        {getUniqueArrayBy(data, "category").map((data, index) => {
+        {getUniqueArrayBy(data, "category").map((item, index) => {
           return (
             <Filter
               key={`filter_${index}`}
               data={data}
+              search={search}
               filtredBrands={filtredBrands}
-              name={data.category}
+              name={item.category}
               selectedFilter={selectedFilter}
               setSelectedFilter={setSelectedFilter}
               setFiltredBrands={setFiltredBrands}
@@ -85,7 +69,7 @@ export default function App() {
         })}
       </Filters>
       <Brands>
-        {getFiltredBrands().map((data, index) => {
+        {filtredBrands.map((data, index) => {
           return <Brand key={`brand_${index}`} data={data} />;
         })}
       </Brands>

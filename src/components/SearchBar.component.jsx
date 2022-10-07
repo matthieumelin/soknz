@@ -23,9 +23,14 @@ export default function SearchBar({
         .includes(newSearch.toLowerCase().trim());
     });
 
-    if (filtred.length) {
-      setSelectedFilter(filtred[0].category);
-      setFiltredBrands(filtred);
+    if (!newSearch.length) {
+      setSelectedFilter("Tous");
+      setFiltredBrands(data);
+    } else if (newSearch.length >= 2) {
+      if (filtred.length) {
+        setSelectedFilter(filtred[0].category);
+        setFiltredBrands(filtred);
+      }
     }
   };
   return (

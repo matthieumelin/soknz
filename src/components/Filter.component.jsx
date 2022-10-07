@@ -5,6 +5,7 @@ import styled from "styled-components";
 export default function Filter({
   name,
   data,
+  search,
   filtredBrands,
   selectedFilter,
   setSelectedFilter,
@@ -14,14 +15,20 @@ export default function Filter({
    * Filter brands by category
    * @returns {Array} data
    */
-  const onSelect = () => {
+  const onSelect = (event) => {
     setSelectedFilter(name);
 
-    const newFiltred = filtredBrands.filter((item) => {
-      return name === item.category;
+    const filtred = data.filter((item) => {
+      return name === item.category && item.name
+        .toLowerCase()
+        .trim()
+        .includes(search.toLowerCase().trim());
     });
 
-    setFiltredBrands(newFiltred);
+    if (filtred.length) {
+      setSelectedFilter(filtred[0].category);
+      setFiltredBrands(filtred);
+    }
   };
 
   return (
